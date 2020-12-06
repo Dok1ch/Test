@@ -8,14 +8,11 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-    </script>
+
 
     <!-- Подключение jquery v3.5.1-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 
     <title>Регистрация</title>
 </head>
@@ -42,109 +39,156 @@
         </div>
     </div>
 
+
     <div class="container">
-        <form role="form" class="form-horizontal">
+        <form role="form" class="form-horizontal" action="validation-form/signup.php" method="POST">
             <div class="form-group row justify-content-center">
-                <label for="inputName"
+                <label for="labelSurname"
                     class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Фамилия<strong>*</strong></label>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="text" class="form-control" name="surname" placeholder="Введите фамилию">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center">
-                <label for="inputName"
+                <label
                     class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Имя<strong>*</strong></label>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="text" class="form-control" name="name" placeholder="Введите имя">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center">
-                <label for="inputName"
-                    class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Отчество</label>
+                <label class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Отчество</label>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="text" class="form-control" name="patronymic" placeholder="Введите отчество">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center">
-                <label for="inputName"
+                <label
+                    class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Роль<strong>*</strong></label>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
+                    <select class="form-control" onChange="Selected(this)" name="role">
+                        <option value="student">Студент</option>
+                        <option value="parent">Родитель</option>
+                        <option value="teacher">Преподаватель</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group row justify-content-center">
+                <label
                     class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">E-mail<strong>*</strong></label>
             </div>
 
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="email" class="form-control" name="email" placeholder="Введите E-mail">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center">
-                <label for="inputName"
+                <label
                     class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Телефон<strong>*</strong></label>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="text" class="form-control" name="phone" placeholder="Введите номер телефона"
+                        id="phone">
                 </div>
             </div>
 
-            <div class="form-group row justify-content-center">
-                <label for="inputName" class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Количество
+            <div class="form-group row justify-content-center hidden" id="ageLabel">
+                <label class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Количество
                     полных лет<strong>*</strong></label>
             </div>
 
-            <div class="form-group row justify-content-center">
+            <div class="form-group row justify-content-center hidden" id="ageDiv">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="text" class="form-control" name="age" placeholder="Введите ваш возраст">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center">
-                <label for="inputName"
+                <label
                     class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Пароль<strong>*</strong></label>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="password" class="form-control" name="password" placeholder="Введите пароль">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center text-left">
-                <label for="inputName" class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Повторите
+                <label class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 col-form-label">Повторите
                     пароль<strong>*</strong></label>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <input type="text" class="form-control" id="inputName">
+                    <input type="password" class="form-control" name="password_2" placeholder="Повторите пароль">
                 </div>
             </div>
 
             <div class="form-group row justify-content-center">
-                <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5"><button type="button"
+                <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5"><button type="submit"
                         class="btn btn-success btn-lg btn-block">Регистрация</button></div>
             </div>
 
             <div class="form-group row justify-content-center">
                 <div class="col-xs-12 col-sm-9 col-md-7 col-lg-6 col-xl-5"><button type="button"
-                        class="btn btn-primary btn-lg btn-block" onclick="document.location='authorization.html'">Назад</button></div>
+                        class="btn btn-primary btn-lg btn-block" onclick="document.location='index.html'">Назад</button>
+                </div>
             </div>
 
         </form>
     </div>
+
+   
+    <script>
+        $(document).ready(function () {
+            $("#phone").mask("+7 (999) 99-99-999");
+        });
+    </script>
+
+    <script>
+        function Selected(a) {
+            var label = a.value;
+            if (label == "student") {
+                document.getElementById("ageLabel").className = 'form-group row justify-content-center hidden';
+                document.getElementById("ageDiv").className = 'form-group row justify-content-center hidden';
+
+            } else if (label == "parent") {
+                document.getElementById("ageLabel").className = 'd-none';
+                document.getElementById("ageDiv").className = 'd-none';
+
+            } else if (label == "teacher") {
+                document.getElementById("ageLabel").className = 'd-none';
+                document.getElementById("ageDiv").className = 'd-none';
+
+            }
+        }
+    </script>
+
+<script src="js/jquery.maskedinput.min.js"></script>
+
 </body>
 
 </html>
